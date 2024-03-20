@@ -12,7 +12,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-private const val BASE_URL = " https://kitsu.docs.apiary.io/"
+private const val BASE_URL = " https://kitsu.io/api/edge/"
 
 @Module
 @InstallIn(SingletonComponent::class)

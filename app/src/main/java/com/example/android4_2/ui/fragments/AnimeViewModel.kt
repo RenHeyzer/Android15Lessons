@@ -11,10 +11,5 @@ import javax.inject.Inject
 class AnimeViewModel @Inject constructor(
     private val repositories: AnimeRepositories
 ) : ViewModel() {
-
-    init {
-        fetchAnime()
-    }
-
-     fun fetchAnime() = repositories.fetchAnime().cachedIn(viewModelScope)
+     fun fetchAnime() = repositories.fetchAnime()
 }

@@ -15,10 +15,3 @@ data class Data(
     @SerializedName("type")
     val type: String
 )
-
-fun AnimeData.toUI() = AnimeData(
-    id = links.replace("https://kitsu.io/api/edge/anime", "/").replace("/", "")
-        .toInt(),
-    links = links,
-    posterImage = posterImage
-)

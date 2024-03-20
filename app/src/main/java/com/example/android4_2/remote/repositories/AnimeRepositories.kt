@@ -18,7 +18,7 @@ class AnimeRepositories @Inject constructor(
         return Pager(
             config = PagingConfig(
                 pageSize = 20,
-                initialLoadSize = 40,
+                initialLoadSize = 20,
                 enablePlaceholders = true
             ),
             pagingSourceFactory = { AnimePagingSource(animeApi) }

@@ -2,7 +2,7 @@ package com.example.android4_2.remote.models
 
 import com.google.gson.annotations.SerializedName
 
-data class AnimeResponse<T>(
+data class AnimeResponse(
     @SerializedName("data")
     val `data`: List<Data>,
     @SerializedName("links")
