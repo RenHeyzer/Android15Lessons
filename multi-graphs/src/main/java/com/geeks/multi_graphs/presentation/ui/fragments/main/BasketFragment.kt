@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geeks.multi_graphs.R
 import com.geeks.multi_graphs.databinding.FragmentBasketBinding
+import com.geeks.multi_graphs.presentation.utils.navController
 
 class BasketFragment : Fragment(R.layout.fragment_basket) {
 
@@ -19,8 +20,7 @@ class BasketFragment : Fragment(R.layout.fragment_basket) {
 
     private fun navigateToPayment() {
         binding.fabToPayment.setOnClickListener {
-            findNavController().navigate(R.id.action_basketFragment_to_payment_graph)
-
+            navController().navigate(R.id.action_mainFlowFragment_to_paymentFlowFragment)
         }
     }
 }

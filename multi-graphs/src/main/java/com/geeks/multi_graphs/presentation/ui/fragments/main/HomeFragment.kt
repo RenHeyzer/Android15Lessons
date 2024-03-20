@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geeks.multi_graphs.R
 import com.geeks.multi_graphs.databinding.FragmentHomeBinding
+import com.geeks.multi_graphs.presentation.utils.navController
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -26,7 +27,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun navigateToSettings() {
         binding.fabToSettings.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_settings_graph)
+            navController().navigate(R.id.action_mainFlowFragment_to_settingsFlowFragment)
         }
     }
 }

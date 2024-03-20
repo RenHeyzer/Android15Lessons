@@ -35,6 +35,4 @@
             app:destination="@id/main_graph" />
     </fragment>
 
-    <include app:graph="@navigation/main_graph" />
-
 </navigation>
