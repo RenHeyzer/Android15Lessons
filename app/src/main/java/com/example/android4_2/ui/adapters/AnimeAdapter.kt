@@ -1,14 +1,13 @@
 package com.example.android4_2.ui.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.android4_2.data.remote.models.anime.Data
 import com.example.android4_2.databinding.ItemAnimeBinding
-import com.example.android4_2.remote.models.Data
 
 class AnimeAdapter : PagingDataAdapter<Data, AnimeAdapter.ViewHolder>(diffUtil) {
 
@@ -19,8 +18,8 @@ class AnimeAdapter : PagingDataAdapter<Data, AnimeAdapter.ViewHolder>(diffUtil) 
             Glide.with(ivItem.context)
                 .load(animeData.attributes.posterImage.original)
                 .into(ivItem)
-            textItem.text = animeData.attributes.titles.en
-            Log.e("tag",animeData.attributes.synopsis.toString())
+            textItem.text = animeData.attributes.titles.en ?: ""
+
         }
     }
 

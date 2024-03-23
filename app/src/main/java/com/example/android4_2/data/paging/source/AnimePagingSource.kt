@@ -3,8 +3,8 @@ package com.example.android4_2.data.paging.source
 import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.android4_2.remote.apiservices.AnimeApi
-import com.example.android4_2.remote.models.Data
+import com.example.android4_2.data.remote.apiservices.AnimeApi
+import com.example.android4_2.data.remote.models.anime.Data
 import okio.IOException
 import retrofit2.HttpException
 

@@ -75,7 +75,8 @@ dependencies {
     // Paging
     val paging_version = "3.2.1"
     implementation("androidx.paging:paging-runtime:$paging_version")
+
     //viewBinding
     val view_binding_property_dalagete = "1.5.9"
-    implementation ("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    implementation ("com.github.kirich1409:viewbindingpropertydelegate-noreflection:$view_binding_property_dalagete")
 }
