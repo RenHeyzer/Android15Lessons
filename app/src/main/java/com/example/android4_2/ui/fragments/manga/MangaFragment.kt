@@ -1,6 +1,7 @@
 package com.example.android4_2.ui.fragments.manga
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -12,48 +13,47 @@ import androidx.paging.LoadState
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.android4_2.R
 import com.example.android4_2.databinding.FragmentMangaBinding
-import com.example.android4_2.ui.adapters.AnimeAdapter
+import com.example.android4_2.ui.adapters.KitsuAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MangaFragment : Fragment(R.layout.fragment_manga) {
 
     private val binding by viewBinding(FragmentMangaBinding::bind)
-    private val mangaAdapter = AnimeAdapter()
+    private val kitsuAdapter = KitsuAdapter()
     private val viewModels by viewModels<MangaViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialize()
-        subscribe()
-        viewLifecycleOwner.lifecycleScope.launch {
-            delay(2000)
-            if (binding.progressBar.isVisible) {
-                binding.progressBar.isVisible = false
-            }
-        }
+        subscribeToManga()
+        handlePagingState()
+    }
+
+    private fun initialize() {
+        binding.rvManga.adapter = kitsuAdapter
+    }
+
+    private fun subscribeToManga() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                mangaAdapter.loadStateFlow.collect {
-                    binding.appendProgress.isVisible = it.source.prepend is LoadState.Loading
-                    binding.prependProgress.isVisible = it.source.append is LoadState.Loading
+                viewModels.mangaState.collectLatest {
+                    kitsuAdapter.submitData(it)
                 }
             }
         }
     }
 
-    private fun initialize() {
-        binding.rv.apply {
-            adapter = mangaAdapter
-        }
-    }
-
-    private fun subscribe() {
-        viewModels.getManga().observe(viewLifecycleOwner) {
-            viewLifecycleOwner.lifecycleScope.launch {
-                mangaAdapter.submitData(it)
+    private fun handlePagingState() = with(binding) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                kitsuAdapter.loadStateFlow.collect {
+                    progressBar.isVisible = it.source.refresh is LoadState.Loading
+                    appendProgress.isVisible = it.source.append is LoadState.Loading
+                    prependProgress.isVisible = it.source.prepend is LoadState.Loading
+                }
             }
         }
     }

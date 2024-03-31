@@ -1,4 +1,4 @@
-package com.example.android4_2.data.remote.repositories
+package com.example.android4_2.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.paging.Pager
@@ -7,34 +7,33 @@ import androidx.paging.PagingData
 import androidx.paging.liveData
 import com.example.android4_2.data.paging.source.AnimePagingSource
 import com.example.android4_2.data.paging.source.MangaPagingSource
-import com.example.android4_2.data.remote.apiservices.AnimeApi
-import com.example.android4_2.data.remote.models.anime.Data
+import com.example.android4_2.data.remote.apiservices.KitsuApiService
+import com.example.android4_2.data.remote.models.DataItem
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class AnimeRepositories @Inject constructor(
-    private val animeApi: AnimeApi
+class KitsuRepository @Inject constructor(
+    private val kitsuApiService: KitsuApiService
 ) {
-    fun fetchAnime(): LiveData<PagingData<Data>> {
-
+    fun fetchAnime(): LiveData<PagingData<DataItem>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 20,
                 initialLoadSize = 20,
                 enablePlaceholders = true
             ),
-            pagingSourceFactory = { AnimePagingSource(animeApi) }
+            pagingSourceFactory = { AnimePagingSource(kitsuApiService) }
         ).liveData
     }
 
-    fun fetchManga(): LiveData<PagingData<Data>> {
+    fun fetchManga(): Flow<PagingData<DataItem>> {
         return Pager(
             config = PagingConfig(
                 pageSize = 20,
                 initialLoadSize = 20,
                 enablePlaceholders = true
             ),
-
-            pagingSourceFactory = { MangaPagingSource(animeApi) }
-        ).liveData
+            pagingSourceFactory = { MangaPagingSource(kitsuApiService) }
+        ).flow
     }
 }

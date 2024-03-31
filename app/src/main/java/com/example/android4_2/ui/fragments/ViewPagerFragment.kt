@@ -26,11 +26,11 @@ class ViewPagerFragment : Fragment(R.layout.fragment_view_pager) {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.text = "Manga"
+                    tab.text = "Anime"
                 }
 
                 1 -> {
-                    tab.text = "Anime"
+                    tab.text = "Manga"
                 }
             }
         }.attach()
