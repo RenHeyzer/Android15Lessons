@@ -10,6 +10,10 @@ import androidx.paging.cachedIn
 import com.geeks.pokeapiandroid15.data.repositories.PokemonRepository
 import com.geeks.pokeapiandroid15.presentation.models.PokemonUI
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,5 +27,8 @@ class PokemonViewModel @Inject constructor(
         addSource(fetchPokemon()) {
             value = it
         }
+    }
+
+    init {
     }
 }
