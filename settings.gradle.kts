@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PokeApiAndroid15"
 include(":app")
-include(":multi-graphs")
+include(":compose")
