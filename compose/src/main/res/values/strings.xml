@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">compose</string>
+    <string name="character_image_content_description">$1%s character image</string>
+</resources>
