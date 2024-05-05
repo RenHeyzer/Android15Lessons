@@ -1,4 +1,4 @@
-package com.geeks.compose.ui.theme
+package com.geeks.compose.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

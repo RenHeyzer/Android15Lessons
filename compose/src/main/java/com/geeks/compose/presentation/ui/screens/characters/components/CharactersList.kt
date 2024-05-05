@@ -1,4 +1,4 @@
-package com.geeks.compose.ui.screens.characters.components
+package com.geeks.compose.presentation.ui.screens.characters.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -25,9 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.geeks.compose.R
-import com.geeks.compose.data.remote.dtos.Character
-import com.geeks.compose.ui.theme.Black30
-import com.geeks.compose.ui.theme.PokeApiAndroid15Theme
+import com.geeks.compose.domain.entities.Character
+import com.geeks.compose.presentation.ui.theme.Black30
+import com.geeks.compose.presentation.ui.theme.PokeApiAndroid15Theme
 
 @Composable
 fun CharactersList(

@@ -1,4 +1,4 @@
-package com.geeks.compose.ui.acitvity
+package com.geeks.compose.presentation.ui.acitvity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.geeks.compose.ui.screens.characters.CharactersScreen
-import com.geeks.compose.ui.theme.PokeApiAndroid15Theme
+import com.geeks.compose.presentation.ui.screens.characters.CharactersScreen
+import com.geeks.compose.presentation.ui.theme.PokeApiAndroid15Theme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

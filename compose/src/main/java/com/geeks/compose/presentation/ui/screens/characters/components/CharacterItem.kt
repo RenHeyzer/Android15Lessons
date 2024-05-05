@@ -1,4 +1,4 @@
-package com.geeks.compose.ui.screens.characters.components
+package com.geeks.compose.presentation.ui.screens.characters.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -27,9 +27,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.geeks.compose.R
-import com.geeks.compose.data.remote.dtos.Character
-import com.geeks.compose.ui.theme.Black30
-import com.geeks.compose.ui.theme.PokeApiAndroid15Theme
+import com.geeks.compose.domain.entities.Character
+import com.geeks.compose.presentation.ui.theme.Black30
+import com.geeks.compose.presentation.ui.theme.PokeApiAndroid15Theme
 
 @Composable
 fun CharacterItem(
